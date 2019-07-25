@@ -15,9 +15,8 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        template = JINJA_ENVIRONMENT.get_template('home.html')
-
-        self.response.write(template.render(a_variable_dict))
+        template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+        self.response.write("Welcome")
 
 # the app configuration section
 app = webapp2.WSGIApplication([
