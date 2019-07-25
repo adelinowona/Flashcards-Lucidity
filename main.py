@@ -15,19 +15,22 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        template = JINJA_ENVIRONMENT.get_template('home.html')
+        template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+        self.response.write("Welcome")
 
-        self.response.write(template.render())
-    def post(self):
-        response = self.request.get('difficulty_selection')
+class SignUp(webapp2.RequestHandler):
+    def get(self):
+        template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+        self.response.write("Welcome")
 
-
-
-
-
-
+class Profile(webapp2.RequestHandler):
+    def get(self):
+        template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+        self.response.write("Welcome")
 
 # the app configuration section
 app = webapp2.WSGIApplication([
     ('/', MainPage),
+    ('/signup', SignUp),
+    ('/profile', Profile)
 ], debug=True)
