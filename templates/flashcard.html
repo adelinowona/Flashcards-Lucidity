@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/flashcardstyle.css">
+    <title>Flashcards</title>
+  </head>
+  <body>
+  <div id="container1">
+  <form method=POST action="/">
+    <p class="font">Difficulty Selection</p>
+    <label class="font">
+    <input type="radio" name="difficulty_selection" value="easy" checked>Easy</label>
+    <label class="font">
+    <input type="radio" name="difficulty_selection" value="medium">Medium</label>
+    <label class="font">
+    <input type="radio" name="difficulty_selection" value="hard">Hard</label>
+  </form>
+  </div>
+  <div id="container2">
+    <section class="box1">
+      <p>{{questions}}<p>
+    </section>
+    <section class="box2">
+      <p>{{answer}}<p>
+    </section>
+  </div>
+  </div>
+  </body>
+  <footer>
+  </footer>
+</html>
