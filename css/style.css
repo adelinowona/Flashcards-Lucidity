@@ -1,3 +1,53 @@
+<<<<<<< HEAD
+.navbar{
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  min-width: 800px;
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Barlow', sans-serif;
+}
+.button-nav{
+  background-color: Dodgerblue;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  padding: 12px 16px;
+}
+.button-nav:hover{
+  background-color: Royalblue;
+  color: white
+}
+.main-nav{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-right: 40px;
+}
+.main-nav li{
+  margin: 15px auto;
+  text-align: center;
+  padding-left: 30px;
+  font-size: 25px;
+  vertical-align: middle;
+}
+.logo{
+  padding-left: 20px;
+  font-size: 50px
+}
+.nav-links:hover, .logo:hover{
+  color: gray;
+  text-decoration: none;
+}
+.nav-links, .logo{
+  color: white;
+  text-decoration: none;
+=======
 @charset "UTF-8";
 *{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif;}
 
@@ -82,5 +132,9 @@ section{ display: flex; }
 div img{
   width: 100px;
   height: auto;
+<<<<<<< HEAD
   float: left;
+=======
+>>>>>>> 8643a207dbb2ba11012a398313283a552c2ec4cb
+>>>>>>> f54c8226b45b4b972a987988ad474306305e4681
 }
