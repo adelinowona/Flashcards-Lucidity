@@ -15,11 +15,10 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-<<<<<<< HEAD
+
         main_template = JINJA_ENVIRONMENT.get_template('templates/home.html')
         self.response.write("test")
 
-=======
         template = JINJA_ENVIRONMENT.get_template('templates/home.html')
         self.response.write(template.render())
 
@@ -32,10 +31,10 @@ class Profile(webapp2.RequestHandler):
     def get(self):
         template = JINJA_ENVIRONMENT.get_template('templates/home.html')
         self.response.write("Welcome")
->>>>>>> a2fddf538fc8ad030562374f4e0a458a46b0edb9
+
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
-    # ('/signup', SignUp),
+    ('/signup', SignUp),
     # ('/profile', Profile)
 ], debug=True)
