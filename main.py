@@ -21,4 +21,6 @@ class MainPage(webapp2.RequestHandler):
 # the app configuration section
 app = webapp2.WSGIApplication([
     ('/', MainPage),
+    ('/signup', SignUp),
+    ('/profile', Profile)
 ], debug=True)
