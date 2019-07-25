@@ -17,7 +17,15 @@ class MainPage(webapp2.RequestHandler):
     def get(self):
         template = JINJA_ENVIRONMENT.get_template('home.html')
 
-        self.response.write(template.render(a_variable_dict))
+        self.response.write(template.render())
+    def post(self):
+        response = self.request.get('difficulty_selection')
+
+
+
+
+
+
 
 # the app configuration section
 app = webapp2.WSGIApplication([

@@ -3,9 +3,23 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <title></title>
+    <title>Flashcards</title>
   </head>
   <body>
-
+  <form method=POST action="/">
+    Questions:<br><br>
+    <div>
+    <input type="radio" id="easy" name="difficulty_selection" value="easy">
+      <label for="easy">Easy</label>
+    </div>
+    <div>
+    <input type="radio" id="medium" name="difficulty_selection" value="medium">
+      <label for="medium">Medium</label>
+    </div>
+    <div>
+    <input type="radio" id="hard" name="difficulty_selection" value="hard">
+      <label for="hard">Hard</label>
+    </div>
+  </form>
   </body>
 </html>
