@@ -15,3 +15,9 @@ class Hard(ndb.Model):
 class User(ndb.Model):
     user_name = ndb.StringProperty(required=True)
     user_id = ndb.StringProperty()
+
+class Flashcard_set(ndb.Model):
+    easy_cards = ndb.KeyProperty(Easy)
+    medium_cards = ndb.KeyProperty(Medium)
+    hard_cards = ndb.KeyProperty(Hard)
+    owner = ndb.KeyProperty(User)

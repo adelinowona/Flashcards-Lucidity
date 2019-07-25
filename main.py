@@ -18,6 +18,16 @@ class MainPage(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/home.html')
         self.response.write("Welcome")
 
+class SignUp(webapp2.RequestHandler):
+    def get(self):
+        template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+        self.response.write("Welcome")
+
+class Profile(webapp2.RequestHandler):
+    def get(self):
+        template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+        self.response.write("Welcome")
+
 # the app configuration section
 app = webapp2.WSGIApplication([
     ('/', MainPage),
