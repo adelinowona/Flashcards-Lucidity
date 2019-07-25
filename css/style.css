@@ -1,23 +1,72 @@
-body {
-  background-color: black;
-  background-image: url("");
-  background-repeat: no-repeat;
-  background-position: middle;
-  margin-right: 200px;
-  background-attachment: fixed;
+@charset "UTF-8";
+*{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif;}
+
+.site-header{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(90deg, #3399CC, #67B8DE);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%)
 }
 
-h1 {
-  color: black;
-  text-align: center;
+nav{
+  width: 100%; height: 100px; display: flex; color: white;
 }
 
-h2 {
-  color: black;
-  text-align: center;
+
+.top{
+  width: 0%; height: 10px;
 }
 
-p {
-  font-family: verdana;
-  font-size: 20px;
+.logo{
+  width: 50%; height: 100px;
+}
+.logo h1{line-height: 100px; padding-left: 50px}
+
+/* .menu{
+  width: 50%; height: 100px; background: green;
+} */
+
+/* .menu ul{ width: 100; height: 100px; display: flex; flex-direction: row;
+   justify-content: space-around; align-items: center;}
+} */
+
+.sign-up{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 0px;
+
+}
+
+
+
+section{ display: flex; }
+.leftside{
+  width: 45%; height: auto; overflow: hidden; margin-top: 20px;
+  margin-left: 100px;
+}
+
+section{ display: flex; }
+.rightside{
+  width: 45%; height: auto; overflow: hidden; margin-top: 20px;
+  margin-left: 100px;
+}
+
+
+
+.flex-container{
+  border-radius: 25px;
+  display: -ms-flexbox;
+  -ms-flexbox-wrap: wrap;
+  -ms-flexbox-direction: column;
+
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  display: flex;
+}
+div img{
+  width: 100px;
+  height: auto;
 }
