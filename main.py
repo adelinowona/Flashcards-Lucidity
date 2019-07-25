@@ -15,13 +15,12 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        template = JINJA_ENVIRONMENT.get_template('home.html')
+        main_template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+        self.response.write("test")
 
-        self.response.write(template.render(a_variable_dict))
 
-# the app configuration section
 app = webapp2.WSGIApplication([
     ('/', MainPage),
-    ('/signup', SignUp),
-    ('/profile', Profile)
+    # ('/signup', SignUp),
+    # ('/profile', Profile)
 ], debug=True)

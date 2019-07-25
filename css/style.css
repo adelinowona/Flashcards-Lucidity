@@ -1,0 +1,23 @@
+body {
+  background-color: black;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-position: middle;
+  margin-right: 200px;
+  background-attachment: fixed;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+}
+
+h2 {
+  color: black;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
