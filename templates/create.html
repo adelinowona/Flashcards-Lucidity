@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create</title>
+    <link rel="stylesheet" href="/css/create.css">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="container1">
+    <form method=POST action="/create">
+      <p class="font">Difficulty Selection</p>
+      <label class="font">
+      <input type="radio" name="difficulty_selection" value="1" checked>Easy</label>
+      <label class="font">
+      <input type="radio" name="difficulty_selection" value="2">Medium</label>
+      <label class="font">
+      <input type="radio" name="difficulty_selection" value="3">Hard</label>
+      <br><br>
+      Question: <input type="text" name="question" value="">
+      <br>
+      Answer: <input type="text" name="answer" value="">
+      <br><br>
+      <br><input type="submit" value="Save Card">
+    </form>
+    <form action="/profile">
+      <br><input type="submit" value="done">
+    </form>
+    </div>
+  </body>
+</html>
