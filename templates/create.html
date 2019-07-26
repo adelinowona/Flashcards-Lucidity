@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create</title>
+    <link rel="stylesheet" href="../css/flashcardstyle.css">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="container1">
+    <form method=POST action="/create">
+      <p class="font">Difficulty Selection</p>
+      <label class="font">
+      <input type="radio" name="difficulty_selection" value="easy" checked>Easy</label>
+      <label class="font">
+      <input type="radio" name="difficulty_selection" value="medium">Medium</label>
+      <label class="font">
+      <input type="radio" name="difficulty_selection" value="hard">Hard</label>
+      <br><br>
+      Question: <input type="text" name="question" value="">
+      <br>
+      Answer: <input type="text" name="answer" value="">
+      <br><br>
+      <br><button type="button" value="Next">Next</button>
+      <br><input type="submit" value="Done">
+      <br>
+    </form>
+    </div>
+  </body>
+</html>
