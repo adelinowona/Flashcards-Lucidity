@@ -2,26 +2,45 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Flashcards</title>
   </head>
   <body>
     <nav class="navbar">
-        <a href="#" class="logo">Flashcards</a>
+        <a href="/" class="logo">Flashcards</a>
         <ul class="main-nav">
             <li>
-                <a href="#" class="nav-links">Create</a>
+                <a href="/" class="nav-links">Create</a>
             </li>
             <li>
                 <a href="#" class="nav-links">About Us</a>
             </li>
             <li>
-                <a href="#" class="nav-links">Login</a>
+                <a href="/login" class="nav-links">Login</a>
             </li>
             <li>
-                <a href="/signup" class="nav-links"><button class="button-nav" type="button" name="button">Sign Up</button></a>
+                <a href="{{login_url}}" class="nav-links">Sign Up</a>
             </li>
         </ul>
       </nav>
+
+      <form action="/profile" method="post">
+          <div class="container">
+            <h1>Please Sign Up</h1>
+            <hr>
+
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Your Username" name="username" required><br>
+
+            <label for="username"><b>Name</b></label>
+            <input type="text" placeholder="Enter Your Name" name="name" required><br>
+
+            <label for="username"><b>Email</b></label>
+            <input type="text" placeholder="Enter Your Email" name="email" required><br>
+            <hr>
+
+          <button type="submit" class="registerbtn">Submit</button>
+          </div>
+
   </body>
 </html>

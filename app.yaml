@@ -3,11 +3,12 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /css
+  static_dir: css
+
 - url: /.*
   script: main.app
 
-- url: /css
-  static_dir: css
 
 libraries:
 - name: webapp2

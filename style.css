@@ -1,53 +1,12 @@
 
-p{
-  padding: 0;
-  margin: 0;
-}
-.section{
-  background-color: #f44156;
-  padding: 20px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  font-size: 35px;
-}
-.section p{
-  color: white;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-.img-circle{
-  border: 3px solid white;
-  border-radius: 50%;
-}
-#header{
-  background-image: url("https://www.jetchill.com/wp-content/uploads/2017/05/blog-header-background.jpg");
-}
-#header img {
-    display: block;
-    margin: auto;
-}
-#header p {
-    font-size: 50px;
-    color: red;
-    padding-top: 5px;
-    margin: 0;
-    font-weight: bold;
-    text-align: center;
-}
-
-
-
 .container {
   padding: 16px;
-  text-align: center;
-  font-size: 20px;
 }
 
 
 /* Full-width input fields */
-input[type=text]{
+input[type=text], input[type=password] {
   width: 95%;
-  text-align: center;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
@@ -55,10 +14,10 @@ input[type=text]{
   background: #f1f1f1;
 }
 
- input[type=text]:focus{
+/* input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
-}
+} */
 
 /* Overwrite default styles of hr */
 hr {
@@ -91,7 +50,6 @@ hr {
 
 .navbar{
   /* border: 1px solid black; */
-  -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
   border-radius: 10px;
   min-width: 800px;
   background-color: lightblue;
