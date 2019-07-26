@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Create</title>
-    <link rel="stylesheet" href="../css/flashcardstyle.css">
+    <link rel="stylesheet" href="/css/create.css">
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
   </head>
@@ -11,19 +11,20 @@
     <form method=POST action="/create">
       <p class="font">Difficulty Selection</p>
       <label class="font">
-      <input type="radio" name="difficulty_selection" value="easy" checked>Easy</label>
+      <input type="radio" name="difficulty_selection" value="1" checked>Easy</label>
       <label class="font">
-      <input type="radio" name="difficulty_selection" value="medium">Medium</label>
+      <input type="radio" name="difficulty_selection" value="2">Medium</label>
       <label class="font">
-      <input type="radio" name="difficulty_selection" value="hard">Hard</label>
+      <input type="radio" name="difficulty_selection" value="3">Hard</label>
       <br><br>
       Question: <input type="text" name="question" value="">
       <br>
       Answer: <input type="text" name="answer" value="">
       <br><br>
-      <br><button type="button" value="Next">Next</button>
-      <br><input type="submit" value="Done">
-      <br>
+      <br><input type="submit" value="Save Card">
+    </form>
+    <form action="/profile">
+      <br><input type="submit" value="done">
     </form>
     </div>
   </body>
