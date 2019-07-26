@@ -4,9 +4,10 @@ import webapp2
 import os
 import jinja2
 import json
-from models import Profile
+from models import Profile, Card
 from google.appengine.api import users
 from google.appengine.api import urlfetch
+import random
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
