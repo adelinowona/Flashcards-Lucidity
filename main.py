@@ -80,12 +80,45 @@ class Profile0Handler(webapp2.RequestHandler):
             }
             template = JINJA_ENVIRONMENT.get_template('templates/profile0.html')
             self.response.write(template.render(dict_variable))
+            
+ class Create(webapp2.RequestHandler):
+    def get(self):
+        create_template = JINJA_ENVIRONMENT.get_template('templates/create.html')
+        self.response.write(create_template.render())
+
+    def post(self):
+        the_question = self.request.get('question')
+        the_answer = self.request.get('answer')
+        difficulty = int(self.request.get('difficulty_selection'))
+
+        card = Card(question=the_question, answer= the_answer, level=difficulty)
+
+        # card_data_answers = Hard(multiple_answers = the_answer)
+        card.put()
+        self.redirect('/create')
+
+
+class Sort(webapp2.RequestHandler):
+    def get(self):
+        # some_levels = Card.query().order(Card.level).fetch()
+        # sort_template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+        # self.response.write(sort_template.render({"level_info": some_levels}))
+        template = JINJA_ENVIRONMENT.get_template('templates/flashcard.html')
+        card = Card.query().filter(Card.level == random.randint(1,3)).get()
+        dict_for_template = {
+            "my_answer": card.answer,
+            "my_question": card.question,
+        }
+        self.response.write(template.render(dict_for_template))
+
 
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/login', LoginHandler),
     ('/profile', ProfileHandler),
-    ('/profile0', Profile0Handler)
+    ('/profile0', Profile0Handler),
+    ('/create', Create),
+    ('/sort', Sort),
 
 ], debug=True)
