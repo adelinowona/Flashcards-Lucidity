@@ -298,6 +298,7 @@ div img{
 
 .button:hover {
   background-color: #555;
+  border: none;
 }
 
 
