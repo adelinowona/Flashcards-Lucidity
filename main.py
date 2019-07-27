@@ -82,7 +82,7 @@ class Profile0Handler(webapp2.RequestHandler):
             template = JINJA_ENVIRONMENT.get_template('templates/profile0.html')
             self.response.write(template.render(dict_variable))
             
- class Create(webapp2.RequestHandler):
+class Create(webapp2.RequestHandler):
     def get(self):
         create_template = JINJA_ENVIRONMENT.get_template('templates/create.html')
         self.response.write(create_template.render())

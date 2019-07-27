@@ -1,4 +1,19 @@
 
+
+.footer {
+    position:absolute;
+    bottom:0px;
+    width: 100%;
+    margin: 0;
+    background-color: lightblue;
+    height: 100px;/* or however high you would like */
+    font-family: 'Barlow', sans-serif;
+    color: white;
+
+}
+
+
+
 p{
   padding: 0;
   margin: 0;
@@ -78,6 +93,17 @@ hr {
   opacity: 0.9;
 }
 
+.savebtn, .donebtn{
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
 .registerbtn:hover {
   opacity:1;
 }
@@ -91,14 +117,15 @@ hr {
 
 .navbar{
   /* border: 1px solid black; */
-  -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-  border-radius: 10px;
+  /* -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75); */
+  /* border-radius: 10px; */
   min-width: 800px;
   background-color: lightblue;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: 'Barlow', sans-serif;
+  padding: 4px 8px;
 }
 .button-nav{
   background-color: Dodgerblue;
@@ -211,8 +238,8 @@ div img{
   width: 100px;
   height: auto;
 }
-  
-  
+
+
  column {
   float: left;
   width: 33.3%;

@@ -3,12 +3,13 @@
   <head>
     <title>Create</title>
     <link rel="stylesheet" href="/css/create.css">
+    <link rel="stylesheet" href="/css/style.css">
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar">
-        <a href="/" class="logo">Flashcards</a>
+        <a href="/" class="logo">Lucidity</a>
         <ul class="main-nav">
             <li>
                 <a href="/" class="nav-links">Create</a>
@@ -24,8 +25,8 @@
             </li>
         </ul>
       </nav>
-    
-    <div id="container1">
+
+    <br><br><div id="container1">
     <form method=POST action="/create">
       <p class="font">Difficulty Selection</p>
       <label class="font">
@@ -39,11 +40,14 @@
       <br>
       Answer: <input type="text" name="answer" value="">
       <br><br>
-      <br><input type="submit" value="Save Card">
+      <br><input class="savebtn" type="submit" value="Save Card">
     </form>
-    <form action="/profile">
-      <br><input type="submit" value="done">
+    <form action="/profile0">
+      <br><input class="donebtn" type="submit" value="Done">
     </form>
     </div>
   </body>
+  <div class="footer">
+  <br><br><p>(c) Google CSSI</p>
+  </div>
 </html>
