@@ -3,35 +3,26 @@
   <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="/css/flashcardstyle.css">
     <link rel="stylesheet" href="/css/style.css">
-
-    <!-- <style>
-    .flip3D{ display: flex; margin: 100px 465px ;50% 0px 50%; padding-top: 20px; text-align: center;}
-    .flip3D > .front{
-    	position:absolute;
-    	transform: perspective( 600px ) rotateY( 0deg );
-    	background:#FC0; width:500px; height:300px; border-radius: 7px;
-    	backface-visibility: hidden;
-    	transition: transform .5s linear 0s;
-
-    }
-    .flip3D > .back{
-    	position:absolute;
-    	transform: perspective( 600px ) rotateY( 180deg );
-    	background: #80BFFF; width:500px; height:300px; border-radius: 7px;
-    	backface-visibility: hidden;
-    	transition: transform .5s linear 0s;
-    }
-    .flip3D:hover > .front{
-    	transform: perspective( 600px ) rotateY( -180deg );
-    }
-    .flip3D:hover > .back{
-    	transform: perspective( 600px ) rotateY( 0deg );
-    }
-    </style> -->
     <title>Flashcards</title>
+    <style>
+      p{
+        padding-top: 20%;
+        font-size: 25px;
+      }
+      button{
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        margin: 270px 550px;
+        border: none;
+        cursor: pointer;
+        width: 10%;
+        opacity: 0.9;
+        align: center;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar">
@@ -41,26 +32,26 @@
                 <a href="/create" class="nav-links">Create</a>
             </li>
             <li>
-                <a href="#" class="nav-links">About Us</a>
-            </li>
-            <li>
                 <a href="/profile0" class="nav-links">Profile</a>
             </li>
             <li>
-                <a href="/logout" class="nav-links">Sign Out</a>
+                <a href="{{login_url}}" class="nav-links">Sign Out</a>
             </li>
         </ul>
       </nav>
 
   <div class="flip3D">
     <div class="back">
-       <p><br><br><br>{{my_answer}}</p>
+       <p>{{my_answer}}</p>
     </div>
     <div class="front">
-      <p><br><br><br>{{my_question}}</p>
+      <p>{{my_question}}</p>
     </div>
   </div>
-    <a href="/sort"><button type="button">Next Card</button></a>
+  <div class="button-div">
+      <a href="/sort"><button type="button">Next Card</button></a>
+  </div>
+
 
   </body>
   <footer>

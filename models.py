@@ -10,7 +10,6 @@ class Card(ndb.Model):
     question = ndb.StringProperty(required=True)
     answer = ndb.StringProperty(required=True)
     owner = ndb.StringProperty()
-    # user = ndb.KeyProperty(required=True)
 
 # class Flashcard_set(ndb.Model):
 #     easy_cards = ndb.KeyProperty(Easy)
