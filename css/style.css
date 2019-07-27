@@ -16,13 +16,12 @@
   outline: none;
   font: inherit;
   color: inherit;
-  padding: 5px 10px;
+  padding: 2px 4px 8px;
 }
 .button-nav:hover{
   background-color: Royalblue;
   color: white
 }
-
 
 
 .main-nav{
@@ -60,11 +59,14 @@ nav{
 
 
 section{ display: flex; }
-.leftside{
+.container{
   width: 45%; height: auto; overflow: hidden; margin-top: 20px;
   margin-left: 100px;
   font-family: 'Barlow', sans-serif;
+  position: relative;
+  text-align: center;
   }
+
 
 }
 
@@ -76,7 +78,7 @@ section{ display: flex; }
 
 
 
-.leftside{
+.container{
   font-family: 'Barlow', sans-serif;
 }
 
@@ -85,10 +87,6 @@ section{ display: flex; }
   overflow: auto;
 }
 
-
-.leftside{
-  style:
-}
 
 .one{
   border-radius: 50%;
@@ -155,10 +153,11 @@ header, footer, article, aside {
 /* Add some shadows to create a card effect */
 .card {
   display: flex;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.75);
   border-radius: 50px;
   float: left;
-  background: linear-gradient(90deg, #3399CC, #67B8DE);
+  background: linear-gradient(90deg, #A5D3E8, #BAD7E5);
+  margin-bottom: 50px;
 }
 
 img.card{
@@ -210,7 +209,24 @@ img.card{
   background-color: #555;
 }
 
+body{
+  background-image: url("background.jpg");
+  width:300px
+  overflow: hidden;
+  margin: 0;
+  display: block;
+  /* max-width: 100%;
+  max-height: 300px; */
+}
 
-.column{
-  font-family: 'Barlow', sans-serif;
+section {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  bottom: 10px;
+  left: 50px;
+  margin-top: 100px;
+  padding-left: 800px;
+  transform: translate(-50%, -50%);
+
 }
