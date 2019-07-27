@@ -19,11 +19,18 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
+      template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+      self.response.write(template.render())
+
+
+class SignUpHandler(webapp2.RequestHandler):
+    def get(self):
+
         user = users.get_current_user()
         # If the user is logged in...
         if user:
-          email_address = user.nickname()
-          current_user = Profile.query().filter(Profile.email == email_address).get()
+          user_id = user.user_id()
+          current_user = Profile.query().filter(Profile.user_id == user_id).get()
           # If the user is registered...
           if current_user:
             # Greet them with their personal information
@@ -34,17 +41,28 @@ class MainPage(webapp2.RequestHandler):
             self.redirect('/profile')
 
         else:
-          # If the user isn't logged in...
-          login_url = users.create_login_url('/')
-          template = JINJA_ENVIRONMENT.get_template('templates/Googlelogin.html')
-          dict_variable = {
-            "login_url": login_url
-          }
-          self.response.write(template.render(dict_variable))
+            self.redirect('/login')
+          # # If the user isn't logged in...
+          # login_url = users.create_login_url('/signup')
+          # template = JINJA_ENVIRONMENT.get_template('templates/Googlelogin.html')
+          # dict_variable = {
+          #   "login_url": login_url
+          # }
+          # self.response.write(template.render(dict_variable))
+
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write("You are signed out")
+        user = users.get_current_user()
+        if user:
+            self.redirect('/signup')
+        else:
+            login_url = users.create_login_url('/signup')
+            template = JINJA_ENVIRONMENT.get_template('templates/Googlelogin.html')
+            dict_variable = {
+              "login_url": login_url
+            }
+            self.response.write(template.render(dict_variable))
 
 
 
@@ -57,10 +75,10 @@ class ProfileHandler(webapp2.RequestHandler):
 
 
     def post(self):
+        user = users.get_current_user()
         user_name = self.request.get('username')
         name = self.request.get('name')
-        email = self.request.get('email')
-        current_user = Profile(user_name=user_name, name=name, email=email,)
+        current_user = Profile(user_name=user_name, name=name, user_id=user.user_id())
         current_user.put()
         dict_variable = {
             "username": user_name
@@ -71,28 +89,40 @@ class ProfileHandler(webapp2.RequestHandler):
 class Profile0Handler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
-        email_address = user.nickname()
-        signout_link_html = users.create_logout_url('/login')
-        current_user = Profile.query().filter(Profile.email == email_address).get()
+        user_id = user.user_id()
+        signout_link_html = users.create_logout_url('/')
+        current_user = Profile.query().filter(Profile.user_id == user_id).get()
         if current_user:
             dict_variable = {
                 "username": current_user.user_name,
-                "login_url": signout_link_html
+                "login_url": signout_link_html,
             }
             template = JINJA_ENVIRONMENT.get_template('templates/profile0.html')
             self.response.write(template.render(dict_variable))
-            
- class Create(webapp2.RequestHandler):
+
+class CreateHandler(webapp2.RequestHandler):
     def get(self):
-        create_template = JINJA_ENVIRONMENT.get_template('templates/create.html')
-        self.response.write(create_template.render())
+        user = users.get_current_user()
+        if not user:
+            self.redirect('/login')
+        else:
+            user_id = user.user_id()
+            current_user = Profile.query().filter(Profile.user_id == user_id).get()
+            if current_user:
+                create_template = JINJA_ENVIRONMENT.get_template('templates/create.html')
+                self.response.write(create_template.render())
+            else:
+                self.redirect('/signup')
+
+
 
     def post(self):
+        user = users.get_current_user()
         the_question = self.request.get('question')
         the_answer = self.request.get('answer')
         difficulty = int(self.request.get('difficulty_selection'))
 
-        card = Card(question=the_question, answer= the_answer, level=difficulty)
+        card = Card(question=the_question, answer= the_answer, level=difficulty, owner=user.user_id())
 
         # card_data_answers = Hard(multiple_answers = the_answer)
         card.put()
@@ -116,10 +146,11 @@ class Sort(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
+    ('/signup', SignUpHandler),
     ('/login', LoginHandler),
     ('/profile', ProfileHandler),
     ('/profile0', Profile0Handler),
-    ('/create', Create),
+    ('/create', CreateHandler),
     ('/sort', Sort),
 
 ], debug=True)
