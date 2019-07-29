@@ -22,7 +22,7 @@
 /*
 body { background: url(background.jpg) repeat 0 0;  background-size: cover;  } */
 .logo{
-  font-family: 'Leckerli One', cursive;
+  font-family: 'Oswald', sans-serif;
   text-shadow: 2px 2px 4px #000000;
 }
 
@@ -205,7 +205,7 @@ hr {
   width: 50%; height: 100px;
 
 }
-.logo h1{line-height: 100px; padding-left: 50px; font-family: 'Leckerli One', cursive;}
+.logo h1{line-height: 100px; padding-left: 50px; font-family: 'Oswald', sans-serif;;}
 
 /* .menu{
   width: 50%; height: 100px; background: green;
