@@ -4,6 +4,51 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/style.css">
     <title>Flashcards</title>
+    <style media="screen">
+      .createSet a{
+        display: inline-block;
+        margin-left: 45%;
+        margin-top: 30px;
+      }
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+
+      /* The Close Button */
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar">
@@ -13,7 +58,7 @@
                 <a href="/create" class="nav-links">Create</a>
             </li>
             <li>
-                <a href="/sort" class="nav-links">Practice</a>
+                <a href="/practice" class="nav-links">Practice</a>
             </li>
             <li>
                 <a href="{{login_url}}" class="nav-links">Sign Out</a>
@@ -27,5 +72,66 @@
               {{username}}
             </p>
       </div>
+      <div class="createSet">
+        <button id="myBtn" class="button-nav nav-links" type="button" name="button"> New Flashcard set</button>
+      </div>
+      <div class="userSets">
+        {% for set in cards %}
+          <form class="" action="/sort" method="post">
+            <button type="submit" name="button">{{set.topic}}</button>
+          </form>
+        {% endfor %}
+      </div>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form action="/profile0" method="post">
+              <div class="container">
+                <h1>New Flashcard Set</h1>
+                <hr>
+
+                <label for="username"><b>Set Topic</b></label>
+                <input type="text" placeholder="Enter Your Set Topic" name="topic" required><br>
+                <hr>
+
+              <button type="submit" class="registerbtn">Submit</button>
+              </div>
+        </div>
+      </div>
+
+      <script>
+          // Get the modal
+
+          var modal = document.getElementById("myModal");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtn");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[0];
+
+          // When the user clicks the button, open the modal
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+
+        </script>
+
   </body>
 </html>
