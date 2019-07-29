@@ -165,24 +165,23 @@ class Sort(webapp2.RequestHandler):
         signout_link_html = users.create_logout_url('/')
         template = JINJA_ENVIRONMENT.get_template('templates/flashcard.html')
         cards = Card.query().filter(Card.topic == practice_topic).filter(Card.owner == current_user.user_id).fetch()
-        i = random.randint(0,len(cards) - 1)
-        card = cards[i]
-        if card not in already_viewed:
-            dict_for_template = {
-                "my_answer": card.answer,
-                "my_question": card.question,
-                "login_url": signout_link_html
-            }
-            self.response.write(template.render(dict_for_template))
-            already_viewed.append(card)
+        if cards == []:
+            self.redirect('/practice')
         else:
-            pass
+            i = random.randint(0,len(cards) - 1)
+            card = cards[i]
+            if card not in already_viewed:
+                dict_for_template = {
+                    "my_answer": card.answer,
+                    "my_question": card.question,
+                    "login_url": signout_link_html
+                }
+                self.response.write(template.render(dict_for_template))
+                already_viewed.append(card)
+            else:
+                pass
 
-        if len(already_viewed) > len(cards):
-            del already_viewed[:]
-
-        self.response.write(already_viewed)
-
+            self.response.write(already_viewed)
 
 
 class PracticeHandler(webapp2.RequestHandler):
