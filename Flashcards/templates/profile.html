@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <title>Lucidity</title>
+  </head>
+  <body>
+    <nav class="navbar">
+        <a href="/" class="logo">LUCIDITY</a>
+        <ul class="main-nav">
+            <li>
+                <a href="/" class="nav-links">CREATE</a>
+            </li>
+            <li>
+                <a href="/login" class="nav-links">LOGIN</a>
+            </li>
+            <li>
+                <a href="{{login_url}}" class="nav-links">SIGN UP</a>
+            </li>
+        </ul>
+      </nav>
+
+      <form action="/profile" method="post">
+          <div class="container">
+            <h1>sign up</h1>
+            <hr>
+
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Your Username" name="username" required><br>
+
+            <label for="username"><b>Name</b></label>
+            <input type="text" placeholder="Enter Your Name" name="name" required><br>
+
+            <hr>
+
+          <button type="submit" class="registerbtn">Submit</button>
+          </div>
+        </form>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+    <title>Lucidity</title>
+    <style media="screen">
+      .createSet a{
+        display: inline-block;
+        margin-left: 45%;
+        margin-top: 30px;
+      }
+      .button-nav{
+        background-color: Dodgerblue;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        font-family: 'Barlow', sans-serif;
+        color: inherit;
+        padding: 12px 16px;
+      }
+      .button-nav:hover{
+        background-color: Royalblue;
+        color: white
+      }
+      p{
+        font-family: 'Barlow', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+        <a href="/" class="logo">LUCIDITY</a>
+        <ul class="main-nav">
+            <li>
+                <a href="/create" class="nav-links">CREATE</a>
+            </li>
+            <li>
+                <a href="/sort" class="nav-links">PRACTICE</a>
+            </li>
+            <li>
+                <a href="{{login_url}}" class="nav-links">SIGN OUT</a>
+            </li>
+        </ul>
+      </nav>
+
+      <div id = "header" class = "section">
+        <img alt= "" class = "img-circle" src = "https://png.pngtree.com/svg/20170920/4ff36bf59e.svg">
+            <p>
+              {{username}}
+            </p>
+      </div>
+      <div class="createSet">
+      <a href="/create"><button id="myBtn" class="button-nav " type="button" name="button"> Create Flashcards</button></a>
+      </div>
+  </body>
+  <div class="footer">
+  <br><br><p>© Google CSSI</p>
+  </div>
+</html>
