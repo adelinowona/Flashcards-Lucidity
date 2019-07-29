@@ -3,7 +3,6 @@
 import webapp2
 import os
 import jinja2
-import json
 from models import Profile, Card
 from google.appengine.api import users
 from google.appengine.api import urlfetch
@@ -15,12 +14,28 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     autoescape=True)
 
 
+already_viewed = []
 
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-      template = JINJA_ENVIRONMENT.get_template('templates/home.html')
-      self.response.write(template.render())
+        user = users.get_current_user()
+        if not user:
+            template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+            self.response.write(template.render())
+
+        else:
+            user_id = user.user_id()
+            signout_link_html = users.create_logout_url('/')
+            current_user = Profile.query().filter(Profile.user_id == user_id).get()
+            if current_user:
+                variable_dict = {'login_url': signout_link_html}
+                template = JINJA_ENVIRONMENT.get_template('templates/home_logged_in_user.html')
+                self.response.write(template.render(variable_dict))
+            else:
+                template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+                self.response.write(template.render())
+
 
 
 class SignUpHandler(webapp2.RequestHandler):
@@ -42,13 +57,6 @@ class SignUpHandler(webapp2.RequestHandler):
 
         else:
             self.redirect('/login')
-          # # If the user isn't logged in...
-          # login_url = users.create_login_url('/signup')
-          # template = JINJA_ENVIRONMENT.get_template('templates/Googlelogin.html')
-          # dict_variable = {
-          #   "login_url": login_url
-          # }
-          # self.response.write(template.render(dict_variable))
 
 
 class LoginHandler(webapp2.RequestHandler):
@@ -65,14 +73,10 @@ class LoginHandler(webapp2.RequestHandler):
             self.response.write(template.render(dict_variable))
 
 
-
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
         template = JINJA_ENVIRONMENT.get_template('templates/profile.html')
         self.response.write(template.render())
-
-
-
 
     def post(self):
         user = users.get_current_user()
@@ -86,6 +90,7 @@ class ProfileHandler(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/profile0.html')
         self.response.write(template.render(dict_variable))
 
+
 class Profile0Handler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -95,22 +100,26 @@ class Profile0Handler(webapp2.RequestHandler):
         if current_user:
             dict_variable = {
                 "username": current_user.user_name,
-                "login_url": signout_link_html,
+                "login_url": signout_link_html
             }
             template = JINJA_ENVIRONMENT.get_template('templates/profile0.html')
             self.response.write(template.render(dict_variable))
 
+
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
+        signout_link_html = users.create_logout_url('/')
+
         if not user:
             self.redirect('/login')
         else:
             user_id = user.user_id()
             current_user = Profile.query().filter(Profile.user_id == user_id).get()
             if current_user:
+                variable_dict = {'login_url': signout_link_html}
                 create_template = JINJA_ENVIRONMENT.get_template('templates/create.html')
-                self.response.write(create_template.render())
+                self.response.write(create_template.render(variable_dict))
             else:
                 self.redirect('/signup')
 
@@ -118,30 +127,42 @@ class CreateHandler(webapp2.RequestHandler):
 
     def post(self):
         user = users.get_current_user()
+        user_id = user.user_id()
+        current_user = Profile.query().filter(Profile.user_id == user_id).get()
         the_question = self.request.get('question')
         the_answer = self.request.get('answer')
         difficulty = int(self.request.get('difficulty_selection'))
 
         card = Card(question=the_question, answer= the_answer, level=difficulty, owner=user.user_id())
-
-        # card_data_answers = Hard(multiple_answers = the_answer)
         card.put()
+
         self.redirect('/create')
 
 
 class Sort(webapp2.RequestHandler):
-    def get(self):
-        # some_levels = Card.query().order(Card.level).fetch()
-        # sort_template = JINJA_ENVIRONMENT.get_template('templates/home.html')
-        # self.response.write(sort_template.render({"level_info": some_levels}))
-        template = JINJA_ENVIRONMENT.get_template('templates/flashcard.html')
-        card = Card.query().filter(Card.level == random.randint(1,3)).get()
-        dict_for_template = {
-            "my_answer": card.answer,
-            "my_question": card.question,
-        }
-        self.response.write(template.render(dict_for_template))
 
+    def get(self):
+        user = users.get_current_user()
+        user_id = user.user_id()
+        current_user = Profile.query().filter(Profile.user_id == user_id).get()
+        signout_link_html = users.create_logout_url('/')
+        template = JINJA_ENVIRONMENT.get_template('templates/flashcard.html')
+        cards = Card.query().filter(Card.owner == current_user.user_id).fetch()
+        if cards == []:
+            self.redirect('/profile0')
+        else:
+            i = random.randint(0,len(cards) - 1)
+            card = cards[i]
+            if card not in already_viewed:
+                dict_for_template = {
+                    "my_answer": card.answer,
+                    "my_question": card.question,
+                    "login_url": signout_link_html
+                }
+                self.response.write(template.render(dict_for_template))
+                already_viewed.append(card)
+            else:
+                pass
 
 
 app = webapp2.WSGIApplication([
@@ -152,5 +173,4 @@ app = webapp2.WSGIApplication([
     ('/profile0', Profile0Handler),
     ('/create', CreateHandler),
     ('/sort', Sort),
-
 ], debug=True)
