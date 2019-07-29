@@ -6,7 +6,17 @@
   align-items: center;
   justify-content: center;
   /* margin-left: 700px; */
-  margin-top: 200px;
+  margin-top: 175px;
+  text-decoration: none;
+  font-family: "Barlow", sans-serif;
+}
+
+.btn2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-left: 700px; */
+
   text-decoration: none;
   font-family: "Barlow", sans-serif;
 }
