@@ -162,7 +162,15 @@ class Sort(webapp2.RequestHandler):
                 self.response.write(template.render(dict_for_template))
                 already_viewed.append(card)
             else:
-                pass
+                self.redirect('/profile0')
+
+
+        # dict_for_template = {
+        #     "my_answer": card.answer,
+        #     "my_question": card.question,
+        #     "login_url": signout_link_html
+        # }
+        # self.response.write(template.render(dict_for_template))
 
 
 app = webapp2.WSGIApplication([
