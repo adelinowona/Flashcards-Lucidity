@@ -57,7 +57,7 @@ font-family: 'Barlow', sans-serif;
 }
 
 
-.flip3D{ display: flex; margin: 100px 370px; text-align: center;}
+.flip3D{display: flex; justify-content: center; align-items: center; margin-top: 200px; text-align: center;}
 .flip3D > .front{
   position:absolute;
   transform: perspective( 600px ) rotateY( 0deg );

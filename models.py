@@ -9,10 +9,9 @@ class Card(ndb.Model):
     level = ndb.IntegerProperty(required=True)
     question = ndb.StringProperty(required=True)
     answer = ndb.StringProperty(required=True)
-    topic = ndb.StringProperty(required=True)
     owner = ndb.StringProperty()
 
-class Flashcard_set(ndb.Model):
-    cards = ndb.StringProperty(repeated=True)
-    topic = ndb.StringProperty()
-    owner = ndb.KeyProperty(Profile)
+# class Flashcard_set(ndb.Model):
+#     cards = ndb.StringProperty(repeated=True)
+#     topic = ndb.StringProperty()
+#     owner = ndb.KeyProperty(Profile)

@@ -3,7 +3,7 @@
 import webapp2
 import os
 import jinja2
-from models import Profile, Card, Flashcard_set
+from models import Profile, Card
 from google.appengine.api import users
 from google.appengine.api import urlfetch
 import random
@@ -97,28 +97,13 @@ class Profile0Handler(webapp2.RequestHandler):
         user_id = user.user_id()
         signout_link_html = users.create_logout_url('/')
         current_user = Profile.query().filter(Profile.user_id == user_id).get()
-        cards = Card.query().filter(Card.owner == user_id).fetch()
-        sets = Flashcard_set.query().filter(Flashcard_set.owner == current_user.put()).fetch()
-
         if current_user:
             dict_variable = {
                 "username": current_user.user_name,
-                "login_url": signout_link_html,
-                "cards": sets
+                "login_url": signout_link_html
             }
             template = JINJA_ENVIRONMENT.get_template('templates/profile0.html')
             self.response.write(template.render(dict_variable))
-
-    def post(self):
-        user = users.get_current_user()
-        user_id = user.user_id()
-        current_user = Profile.query().filter(Profile.user_id == user_id).get()
-        card_topic = self.request.get('topic')
-
-        cardsSet = Flashcard_set(owner=current_user.put(), topic=card_topic).put()
-
-        self.redirect('/create')
-
 
 
 class CreateHandler(webapp2.RequestHandler):
@@ -146,10 +131,9 @@ class CreateHandler(webapp2.RequestHandler):
         current_user = Profile.query().filter(Profile.user_id == user_id).get()
         the_question = self.request.get('question')
         the_answer = self.request.get('answer')
-        card_topic = self.request.get('topic')
         difficulty = int(self.request.get('difficulty_selection'))
 
-        card = Card(question=the_question, answer= the_answer, level=difficulty, owner=user.user_id(), topic=card_topic)
+        card = Card(question=the_question, answer= the_answer, level=difficulty, owner=user.user_id())
         card.put()
 
         self.redirect('/create')
@@ -157,16 +141,15 @@ class CreateHandler(webapp2.RequestHandler):
 
 class Sort(webapp2.RequestHandler):
 
-    def post(self):
+    def get(self):
         user = users.get_current_user()
         user_id = user.user_id()
         current_user = Profile.query().filter(Profile.user_id == user_id).get()
-        practice_topic = self.request.get('topic')
         signout_link_html = users.create_logout_url('/')
         template = JINJA_ENVIRONMENT.get_template('templates/flashcard.html')
-        cards = Card.query().filter(Card.topic == practice_topic).filter(Card.owner == current_user.user_id).fetch()
+        cards = Card.query().filter(Card.owner == current_user.user_id).fetch()
         if cards == []:
-            self.redirect('/practice')
+            self.redirect('/profile0')
         else:
             i = random.randint(0,len(cards) - 1)
             card = cards[i]
@@ -179,19 +162,15 @@ class Sort(webapp2.RequestHandler):
                 self.response.write(template.render(dict_for_template))
                 already_viewed.append(card)
             else:
-                pass
-
-            self.response.write(already_viewed)
+                self.redirect('/profile0')
 
 
-class PracticeHandler(webapp2.RequestHandler):
-    def get(self):
-        signout_link_html = users.create_logout_url('/')
-        template = JINJA_ENVIRONMENT.get_template('templates/practice-selection.html')
-        dict_for_template = {
-            "login_url": signout_link_html
-        }
-        self.response.write(template.render(dict_for_template))
+        # dict_for_template = {
+        #     "my_answer": card.answer,
+        #     "my_question": card.question,
+        #     "login_url": signout_link_html
+        # }
+        # self.response.write(template.render(dict_for_template))
 
 
 app = webapp2.WSGIApplication([
@@ -202,5 +181,4 @@ app = webapp2.WSGIApplication([
     ('/profile0', Profile0Handler),
     ('/create', CreateHandler),
     ('/sort', Sort),
-    ('/practice', PracticeHandler),
 ], debug=True)

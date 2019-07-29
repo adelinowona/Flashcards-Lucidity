@@ -261,8 +261,7 @@ div img{
 .button {
   border: none;
   outline: 0;
-  display: inline-block;
-  padding: 8px;
+  /* margin-top:  */
   color: white;
   background-color: #000;
   text-align: center;
