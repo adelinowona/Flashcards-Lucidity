@@ -162,7 +162,12 @@ class Sort(webapp2.RequestHandler):
                 self.response.write(template.render(dict_for_template))
                 already_viewed.append(card)
             else:
-                self.redirect('/profile0')
+                if len(already_viewed) == len(cards):
+                    del already_viewed[:]
+                    self.redirect('/profile0')
+
+                self.redirect('/sort')
+
 
 
         # dict_for_template = {
