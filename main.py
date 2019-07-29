@@ -66,7 +66,7 @@ class LoginHandler(webapp2.RequestHandler):
             self.redirect('/signup')
         else:
             login_url = users.create_login_url('/signup')
-            template = JINJA_ENVIRONMENT.get_template('templates/Googlelogin.html')
+            template = JINJA_ENVIRONMENT.get_template('templates/googlelogin.html')
             dict_variable = {
               "login_url": login_url
             }
