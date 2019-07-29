@@ -22,6 +22,12 @@
 }
 
 
+p{
+  color: white;
+}
+
+
+
 .learningpic{
    object-fit: cover;
    width:100%;
@@ -44,7 +50,7 @@
 .team-section h1{
   text-transform: uppercase;
   margin-bottom: 10px;
-  color: black;
+  color: white;
   font-size: 40px;
 }
 
