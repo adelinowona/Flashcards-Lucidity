@@ -1,6 +1,8 @@
 /* input[type="radio"].font {
   font-family: 'Barlow', sans-serif;
 } */
+
+
 .btn1 {
   display: flex;
   align-items: center;
@@ -42,17 +44,17 @@ font-family: 'Barlow', sans-serif;
 }
 
 .footer {
-    position:absolute;
+    position: absolute;
     bottom:0px;
     width: 100%;
     margin: 0;
     background-color: lightblue;
     height: 100px;/* or however high you would like */
     font-family: 'Barlow', sans-serif;
-
+    display: flex;
 }
 
-#container1 {
+/* #container1 {
   width:100%;
   height:100%;
   background: #D5FFF7;
@@ -61,7 +63,7 @@ font-family: 'Barlow', sans-serif;
   flex: auto;
   border-radius: 15px 15px 15px 15px;
   padding: 5px, 0px, 5px, 0px;
-}
+} */
 
 #container2 {
   margin: 10px 0px 10px 0px;
@@ -100,7 +102,8 @@ font-family: 'Barlow', sans-serif;
 .flip3D{display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 200px;}
+  padding-top: 200px;
+}
 .flip3D > .front{
   position:absolute;
   transform: perspective( 600px ) rotateY( 0deg );
@@ -121,4 +124,62 @@ font-family: 'Barlow', sans-serif;
 }
 .flip3D:hover > .back{
   transform: perspective( 600px ) rotateY( 0deg );
+}
+
+.navbar{
+  /* border: 1px solid black; */
+  /* border-radius: 10px; */
+  min-width: 800px;
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Barlow', sans-serif;
+}
+.button-nav{
+  background-color: Dodgerblue;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  padding: 2px 4px 8px;
+}
+.button-nav:hover{
+  background-color: Royalblue;
+  color: white
+}
+
+
+.main-nav{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  /* margin-right: 40px; */
+}
+.main-nav li{
+  margin: 15px auto;
+  text-align: center;
+  padding-left: 30px;
+  font-size: 25px;
+  vertical-align: middle;
+}
+.logo{
+  padding-left: 20px;
+  font-size: 50px
+}
+.nav-links:hover, .logo:hover{
+  color: gray;
+  text-decoration: none;
+}
+.nav-links, .logo{
+  color: white;
+  text-decoration: none;
+
+@charset "UTF-8";
+*{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif;}
+
+nav{
+  width: 100%; height: 100px; display: flex; color: white;
 }
