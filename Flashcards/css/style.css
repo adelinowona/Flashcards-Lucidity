@@ -1,0 +1,393 @@
+
+
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #D9DFE8;;
+    height: 100px;/* or however high you would like */
+    font-family: 'Barlow', sans-serif;
+    color: white;
+}
+
+.footer p{
+  margin-left: 20px;
+}
+
+
+.leftside{
+  background: url(lights.jpg) repeat 0 0;  background-size: cover;
+}
+/*
+body { background: url(background.jpg) repeat 0 0;  background-size: cover;  } */
+.logo{
+  font-family: 'Leckerli One', cursive;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+p{
+  padding: 0;
+  margin: 0;
+}
+.section{
+  background-color: #f44156;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 35px;
+}
+.section p{
+  color: white;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.img-circle{
+
+  border: 3px solid white;
+  border-radius: 50%;
+}
+#header{
+  background-image: url("https://www.jetchill.com/wp-content/uploads/2017/05/blog-header-background.jpg");
+}
+#header img {
+    display: block;
+    margin: auto;
+}
+#header p {
+    font-size: 50px;
+    /* color: red; */
+    padding-top: 5px;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+.container {
+  width: 25%;
+  margin-left: 35%;
+  padding: 16px;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Barlow', sans-serif;
+  transform:scale(0.95);
+}
+
+.container h1{
+   text-shadow: 0 0 3px #D1ECEC;
+}
+
+
+
+/* Full-width input fields */
+input[type=text]{
+  width: 95%;
+  text-align: center;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+ input[type=text]:focus{
+  background-color: #dddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #E6F5F6;
+  margin-bottom: 25px;
+
+
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-image: linear-gradient(45deg, #4fa49a, #4361c2);
+  font-size: 1em;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.savebtn, .donebtn{
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.navbar{
+  /* -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75); */
+  /* border-radius: 10px; */
+  max-width: 100%;
+  background-color: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Barlow', sans-serif;
+  text-shadow: 2px 2px 4px #aeb0b0;
+
+}
+.button-nav{
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background-color: inherit;
+  text-shadow: 2px 2px 4px #aeb0b0;
+}
+/* .button-nav:hover{
+  background-color: Royalblue;
+  color: inherit;
+} */
+.main-nav{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-right: 40px;
+  text-transform: capitalize;
+}
+.main-nav li{
+  margin: 15px auto;
+  text-align: center;
+  padding-left: 30px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+.logo{
+  padding-left: 20px;
+  font-size: 40px
+}
+.nav-links:hover, .logo:hover{
+  color:#C1BBD7;
+  text-decoration: none;
+}
+.nav-links, .logo{
+  color: #ACC7E5;
+  text-decoration: none;
+
+
+/* nav{
+  width: 100%; height: 100px; display: flex; color: white;
+} */
+
+
+.top{
+  width: 0%; height: 10px;
+}
+
+.logo{
+  width: 50%; height: 100px;
+
+}
+.logo h1{line-height: 100px; padding-left: 50px; font-family: 'Leckerli One', cursive;}
+
+/* .menu{
+  width: 50%; height: 100px; background: green;
+} */
+
+/* .menu ul{ width: 100; height: 100px; display: flex; flex-direction: row;
+   justify-content: space-around; align-items: center;}
+} */
+
+
+
+
+section{ display: flex; }
+.leftside{
+  width: 45%; height: auto; overflow: hidden; margin-top: 20px;
+  margin-left: 100px;
+}
+
+
+
+.flex-container{
+  border-radius: 25px;
+  display: -ms-flexbox;
+  -ms-flexbox-wrap: wrap;
+  -ms-flexbox-direction: column;
+
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  display: flex;
+}
+
+
+
+ column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media all and (max-width: 100%) {
+  .column {
+    width: 100%;
+    display: block;
+    display: flex;
+  }
+}
+
+/* Add some shadows to create a card effect */
+/* .card {
+  display: flex;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  float: center;
+  background: linear-gradient(90deg, #3399CC, #67B8DE);
+
+} */
+
+/* Some left and right padding inside the container */
+/* .container {
+  padding: 0 16px;
+  table-layout: auto;
+}
+
+/* Clear floats */
+/* .container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+} */
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+  border: none;
+}
+
+
+.column{
+  font-family: 'Barlow', sans-serif;
+}
+
+/* THIS IS FOR THE HOME PAGE*/
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', sans-serif;
+}
+
+.team-section{
+  overflow: hidden;
+  text-align: center;
+  background: linear-gradient(45deg, #4fa49a, #4361c2);
+  padding: 60px;
+
+}
+
+.team-section h1{
+  text-transform: uppercase;
+  margin-bottom: 60px;
+  color: black;
+  font-size: 400em;
+}
+
+.border{
+  display: block;
+  margin: auto;
+  width: 160px;
+  height: 3px;
+  background: black;
+  margin-bottom: 40px;
+}
+
+.ps{
+  margin-bottom: 40px;
+
+}
+
+
+.ps a{
+  display: inline-block;
+  margin: 0 30px;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 50%;
+  filter: drop-shadow(3px 3px 3px #222);
+}
+
+.ps a img{
+  width: 100%;
+  filter: grayscale(100%);
+  transition: 0.7s all;
+
+}
+
+.ps a:hover > img{
+  filter: none;
+
+}
+
+.mission p{
+text-align: justify;
+margin-left: 80px;
+margin-right: 80px
+}
+
+
+.section{
+  width: 600px;
+  margin: auto;
+  font-size: 20px;
+  color: black;
+  height: 0;
+  overflow: hidden;
+}
+
+.section:target{
+  height: auto;
+}
+
+.name{
+  display: block;
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+}

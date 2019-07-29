@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create</title>
+    <link rel="stylesheet" href="/css/flashcardstyle.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar">
+        <a href="/" class="logo">Lucidity</a>
+        <ul class="main-nav">
+            <li>
+                <a href="/profile" class="nav-links">PROFILE</a>
+            </li>
+        </ul>
+      </nav>
+
+    <br><br><div id="container1">
+    <form method=POST action="/create">
+      <p class="font">Difficulty Selection</p>
+      <label class="font">
+      <input type="radio" name="difficulty_selection" value="1" checked>Easy</label>
+      <label class="font">
+      <input type="radio" name="difficulty_selection" value="2">Medium</label>
+      <label class="font">
+      <input type="radio" name="difficulty_selection" value="3">Hard</label>
+      <br><br>
+      Question: <input type="text" name="question" value="">
+      <br>
+      Answer: <input type="text" name="answer" value="">
+      <br><br>
+      <br><input class="savebtn" type="submit" value="Save Card">
+    </form>
+    <form action="/profile0">
+      <br><input class="donebtn" type="submit" value="Done">
+    </form>
+    </div>
+  </body>
+  <div class="footer">
+  <br><br><p>© Google CSSI</p>
+  </div>
+</html>

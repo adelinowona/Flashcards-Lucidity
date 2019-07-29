@@ -1,0 +1,171 @@
+
+.container {
+  padding: 16px;
+}
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 95%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+} */
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.navbar{
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  min-width: 800px;
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Barlow', sans-serif;
+}
+.button-nav{
+  background-color: Dodgerblue;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  padding: 12px 16px;
+}
+.button-nav:hover{
+  background-color: Royalblue;
+  color: white
+}
+.main-nav{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-right: 40px;
+}
+.main-nav li{
+  margin: 15px auto;
+  text-align: center;
+  padding-left: 30px;
+  font-size: 25px;
+  vertical-align: middle;
+}
+.logo{
+  padding-left: 20px;
+  font-size: 50px
+}
+.nav-links:hover, .logo:hover{
+  color: gray;
+  text-decoration: none;
+}
+.nav-links, .logo{
+  color: white;
+  text-decoration: none;
+
+@charset "UTF-8";
+*{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif;}
+
+.site-header{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(90deg, #3399CC, #67B8DE);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%)
+}
+
+nav{
+  width: 100%; height: 100px; display: flex; color: white;
+}
+
+
+.top{
+  width: 0%; height: 10px;
+}
+
+.logo{
+  width: 50%; height: 100px;
+}
+.logo h1{line-height: 100px; padding-left: 50px}
+
+/* .menu{
+  width: 50%; height: 100px; background: green;
+} */
+
+/* .menu ul{ width: 100; height: 100px; display: flex; flex-direction: row;
+   justify-content: space-around; align-items: center;}
+} */
+
+.sign-up{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 0px;
+
+}
+
+
+
+section{ display: flex; }
+.leftside{
+  width: 45%; height: auto; overflow: hidden; margin-top: 20px;
+  margin-left: 100px;
+}
+
+section{ display: flex; }
+.rightside{
+  width: 45%; height: auto; overflow: hidden; margin-top: 20px;
+  margin-left: 100px;
+}
+
+
+
+.flex-container{
+  border-radius: 25px;
+  display: -ms-flexbox;
+  -ms-flexbox-wrap: wrap;
+  -ms-flexbox-direction: column;
+
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  display: flex;
+}
+div img{
+  width: 100px;
+  height: auto;
+}
