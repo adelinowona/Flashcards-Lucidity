@@ -1,5 +1,4 @@
-#main.py
-# the import section
+
 import webapp2
 import os
 import jinja2
